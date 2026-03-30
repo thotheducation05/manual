@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual: Carga Inteligente de Programas</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 30px; color: #334155; }
+        .container { max-width: 950px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { color: #1e293b; font-size: 32px; margin-bottom: 10px; }
+        .header p { color: #64748b; font-size: 18px; }
+
+        /* Sección Introducción */
+        .intro-box { background: #eff6ff; border-radius: 15px; padding: 25px; margin-bottom: 35px; border: 1px solid #dbeafe; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .intro-item { text-align: center; }
+        .intro-item span { font-size: 30px; display: block; margin-bottom: 10px; }
+        .intro-item b { color: #1d4ed8; display: block; margin-bottom: 5px; }
+        .intro-item p { font-size: 13px; margin: 0; color: #475569; }
+
+        .stop-signal { background: #fff7ed; border-left: 6px solid #f97316; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
+
+        /* Grid de Casos */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+        .card { background: white; border-radius: 18px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; position: relative; overflow: hidden; }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 6px; }
+        
+        .case-1::before { background: #eab308; } /* Amarillo */
+        .case-2::before { background: #8b5cf6; } /* Morado */
+        .case-3::before { background: #ef4444; } /* Rojo */
+        .case-4::before { background: #10b981; } /* Verde */
+
+        .card h3 { margin-top: 0; font-size: 19px; display: flex; align-items: center; gap: 10px; }
+        .tag { font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: block; }
+        
+        .selector-box { background: #f8fafc; padding: 15px; border-radius: 10px; margin-top: 15px; border: 1px dashed #cbd5e1; }
+        .selector-box b { font-size: 13px; color: #334155; }
+        
+        .footer-action { margin-top: 40px; text-align: center; padding: 25px; background: #f1f5f9; border-radius: 15px; }
+        .btn-mock { background: #22c55e; color: white; padding: 12px 25px; border-radius: 8px; display: inline-block; font-weight: bold; margin-top: 10px; box-shadow: 0 4px 0 #16a34a; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🎓 Sistema de Carga Inteligente</h1>
+        <p>Tu asistente automático para subir programas de estudio</p>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <div class="intro-box">
+        <div class="intro-item">
+            <span>📚</span>
+            <b>Registra Programas</b>
+            <p>Sube títulos, descripciones y precios automáticamente.</p>
+        </div>
+        <div class="intro-item">
+            <span>🏛️</span>
+            <b>Valida Universidades</b>
+            <p>Busca si la universidad ya existe para no crear duplicados.</p>
+        </div>
+        <div class="intro-item">
+            <span>✨</span>
+            <b>Auto-Creación</b>
+            <p>Si la <b>Categoría</b> o <b>Especialidad</b> es nueva, el sistema la crea por ti.</p>
+        </div>
+    </div>
+
+    <div class="stop-signal">
+        <b>🛡️ Protección Total: Nada se guarda sin tu permiso.</b><br>
+        Si el sistema encuentra dudas, pausará la carga y te mostrará un menú para que tú decidas qué hacer. Tu base de datos siempre estará segura.
+    </div>
+
+    <div class="grid">
+        
+        <!-- CASO 1 -->
+        <div class="card case-1">
+            <span class="tag" style="color: #a16207;">DETECCIÓN DE REPETIDOS</span>
+            <h3>📑 Programas Duplicados</h3>
+            <p style="font-size: 14px;">El sistema detectó que un programa está <b>repetido</b> en tu Excel o ya existe en la web.</p>
+            <div class="selector-box">
+                <b>💡 ¿Qué debo hacer?</b><br>
+                Solo revisa el aviso. Al final, el sistema <b>omitirá</b> las copias y guardará el primer registro. No tienes que seleccionar nada.
+            </div>
+        </div>
+
+        <!-- CASO 2 -->
+        <div class="card case-2">
+            <span class="tag" style="color: #6d28d9;">DIFERENCIA DE NOMBRE</span>
+            <h3>🤔 ¿Es la misma Universidad?</h3>
+            <p style="font-size: 14px;">Escribiste un nombre parecido a uno que ya tenemos (ej: Univ. vs Universidad).</p>
+            <div class="selector-box">
+                <b>🔘 Tendrás un selector para elegir:</b><br>
+                <ul style="font-size: 12.5px; padding-left: 20px; margin-top: 8px;">
+                    <li><b>Corregir:</b> Cambia el nombre viejo por el de tu Excel.</li>
+                    <li><b>Mantener:</b> Usa el nombre que ya tiene el sistema.</li>
+                    <li><b>Nueva:</b> Crea una universidad distinta.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CASO 3 -->
+        <div class="card case-3">
+            <span class="tag" style="color: #b91c1c;">ERROR DE PAÍS</span>
+            <h3>🌎 El País no coincide</h3>
+            <p style="font-size: 14px;">La universidad está en <i>Ecuador</i> pero tu Excel dice <i>Colombia</i>.</p>
+            <div class="selector-box">
+                <b>🔘 Selecciona la acción correcta:</b><br>
+                <ul style="font-size: 12.5px; padding-left: 20px; margin-top: 8px;">
+                    <li><b>Cambiar País:</b> Cambiar el país a la universidad existente en el sistema.</li>
+                    <li><b>Mantener País:</b> Mantener en el país actual de tu Excel.</li>
+                    <li><b>Otra Sede:</b> Crea una nueva ficha de universidad con este país.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CASO 4 -->
+        <div class="card case-4">
+            <span class="tag" style="color: #059669;">RESULTADOS</span>
+            <h3>🎉 ¡Importación Finalizada!</h3>
+            <p style="font-size: 14px;">Al terminar, verás un resumen de todo el proceso:</p>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="background:#bbf7d0; padding:8px; border-radius:8px; flex:1; text-align:center; font-size:11px;"><b>NUEVOS:</b><br>Creados hoy</div>
+                <div style="background:#bfdbfe; padding:8px; border-radius:8px; flex:1; text-align:center; font-size:11px;"><b>ACTUALIZADOS:</b><br>Datos mejorados</div>
+            </div>
+            <p style="font-size: 12px; margin-top: 10px; color: #64748b;">⚠️ <b>Filas Omitidas:</b> Registros que se saltaron por estar repetidos.</p>
+        </div>
+
+    </div>
+
+    <div class="footer-action">
+        <p style="margin: 0; font-weight: bold; color: #334155;">Cuando estés lista con tus selecciones, presiona el botón:</p>
+        <div class="btn-mock">Confirmar Todo y Guardar</div>
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 10px;">(Este botón procesará tus cambios y actualizará la base de datos de inmediato)</p>
+    </div>
+
+</div>
+
+</body>
+</html>
